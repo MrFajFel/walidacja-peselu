@@ -23,14 +23,13 @@ class MyForm(QDialog):
         street = self.ui.streetEdit.text()
         zipCode = self.ui.zipCodeEdit.text()
         city = self.ui.cityEdit.text()
-        with open("plik.txt","w+") as file:
-            file.write(name + "-")
-            file.write(lastName + "-")
-            file.write(birthDate + "-")
-            file.write(pesel + "-")
-            file.write(street + "-")
-            file.write(zipCode + "-")
-            file.write(city)
+
+        person = Person(name, lastName, birthDate, pesel, street, zipCode, city)
+
+        if person.validate_pesel():
+            with open("plik.txt", "w+") as file:
+                file.write(f"{person.name};{person.lastname};{person.birthDate};{person.pesel};"
+                            f"{person.address.street};{person.address.zipcode};{person.address.city}\n")
 
 
 
