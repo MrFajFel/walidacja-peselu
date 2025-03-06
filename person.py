@@ -23,3 +23,5 @@ class Person:
         if control_digit != int(self.pesel[10]):
             raise ValueError("Invalid PESEL: Cyfra kontrolna jest nieprawidłowa")
         return True
+
+    #chyba dziala
